@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'belt_exam/css/style_ind.css' %}"media="screen" title="no title"  charset="utf-8">
+    <title>Login and Reg page</title>
+  </head>
+  <body>
+
+    {% if messages %}
+    <ul class = "messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class = "{{ message.tags }}" {% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    <h2>Register</h2>
+    <div class="register_box">
+      <form action="/register" method="post">
+        {% csrf_token %}
+        Name: <input type="text" name="name"><br>
+        Username: <input type="text" name = "username"><br>
+        Password: <input type="password" name="password"><br>
+        <p>* Password should be at least 8 characters</p><br>
+        Confirm PW: <input type="password" name="confirm_pass"><br>
+        <input type="submit" value="Register">
+      </form>
+    </div>
+      <div class="login_box">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+          {% csrf_token %}
+          Username: <input type="text" name="username">
+          Password: <input type="text" name="password">
+          <input type="submit" value="Login">
+
+        </form>
+      </div>
+
+  </body>
+</html>

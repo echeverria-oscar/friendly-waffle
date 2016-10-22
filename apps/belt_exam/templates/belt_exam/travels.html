@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'belt_exam/css/travels.css' %}"media="screen" title="no title"  charset="utf-8">
+    <title>Travels From User</title>
+  </head>
+  <body>
+    {% csrf_token %}
+    <h2>Welcome, {{user.username}}! </h2>
+
+  <div class="user_actions">
+    <h3><a href="/logout">logout</a></h3>
+  <div class="data_box">
+
+  </div>
+    <h3>Your Trip Schedules</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Destination</th>
+          <th>Travel Start Date</th>
+          <th>Travel End Date</th>
+          <th>Plan</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for usertrip in usertrips %}
+          <tr>
+            <td><a href="/locations/{{usertrip.id}}">{{usertrip.destination}}</a></td>
+            <td>{{usertrip.travel_from}}</td>
+            <td>{{usertrip.travel_to}}</td>
+            <td>{{usertrip.description}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <h3>Other users travel plans</h3><br>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Destination</th>
+          <th>Travel Start Date</th>
+          <th>Travel End Date</th>
+          <th>Do You Want to Join</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for trip in trips  %}
+          <tr>
+            <td>{{trip.user.name}}</td>
+            <td><a href = "/locations/{{trip.id}}">{{trip.destination}}</a></td>
+            <td>{{trip.travel_from}}</td>
+            <td>{{trip.travel_to}}</td>
+            <td><a href = "/locations/{{trip.id}}">Join</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+        <h3><a href="/addplan">Add a Travel Plan</a></h3>
+
+  </body>
+</html>
