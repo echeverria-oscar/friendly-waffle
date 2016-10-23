@@ -69,8 +69,8 @@ class User(models.Model):
 class Trip(models.Model):
     destination = models.CharField(max_length = 100)
     description = models.CharField(max_length = 200)
-    travel_from = models.CharField(max_length = 100)
-    travel_to = models.CharField(max_length = 100)
+    travel_from = models.DateTimeField()
+    travel_to = models.DateTimeField()
     user = models.ForeignKey(User)
     created_at = models.DateTimeField(auto_now_add= True)
     updated_at = models.DateTimeField(auto_now=True)

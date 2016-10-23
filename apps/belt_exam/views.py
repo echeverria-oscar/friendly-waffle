@@ -28,6 +28,7 @@ def login(request):
         user = User.objects.login(request.POST)
         if not user:
             messages.error(request, "Not login credentials!")
+            return redirect('/')
         else:
            request.session['logged_user'] = user.id
            return redirect('/travels')

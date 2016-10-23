@@ -1,3 +1,30 @@
-h2 {
-  color: red;
+body{
+  width: 960px;
+  align-items: center;
 }
+  .register_box{
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #4c5666;
+    padding-left: 5px;
+    padding-bottom: 4px;
+    display: inline-block;
+  }
+  h2 {
+    color: #4c5666;
+    text-decoration: underline;
+  }
+
+  ul {
+    color: red;
+  }
+
+  .login_box{
+    width: 450px;
+    height: 273px;
+    display: inline-block;
+    border: 2px solid #4c5666;
+    vertical-align: top;
+    padding-left: 7px;
+  }

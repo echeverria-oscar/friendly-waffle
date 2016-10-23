@@ -16,15 +16,16 @@
     </ul>
     {% endif %}
 
-    <h2>Register</h2>
+
     <div class="register_box">
+      <h2>Register</h2>
       <form action="/register" method="post">
         {% csrf_token %}
-        Name: <input type="text" name="name"><br>
-        Username: <input type="text" name = "username"><br>
-        Password: <input type="password" name="password"><br>
-        <p>* Password should be at least 8 characters</p><br>
-        Confirm PW: <input type="password" name="confirm_pass"><br>
+        <p>Name: <input type="text" name="name"></p>
+        <p>Username: <input type="text" name = "username"></p>
+        <p>Password: <input type="password" name="password"></p>
+        <p>* Password should be at least 8 characters</p></p>
+        <p>Confirm PW: <input type="password" name="confirm_pass"></p>
         <input type="submit" value="Register">
       </form>
     </div>
@@ -32,8 +33,8 @@
         <h2>Login</h2>
         <form action="/login" method="post">
           {% csrf_token %}
-          Username: <input type="text" name="username">
-          Password: <input type="text" name="password">
+          <p>Username: <input type="text" name="username"></p>
+      </p>    <p>Password: <input type="password" name="password"></p>
           <input type="submit" value="Login">
 
         </form>
